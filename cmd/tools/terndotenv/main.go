@@ -10,6 +10,7 @@ func main() {
 	if err := godotenv.Load(); err != nil {
 		panic(err)
 	}
+
 	cmd := exec.Command(
 		"tern",
 		"migrate",
@@ -18,7 +19,6 @@ func main() {
 		"--config",
 		"./internal/store/pgstore/migrations/tern.conf",
 	)
-
 	if err := cmd.Run(); err != nil {
 		panic(err)
 	}
